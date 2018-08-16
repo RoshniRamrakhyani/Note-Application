@@ -9,7 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { AddNotePage } from '../pages/add-note/add-note';
 import { NoteService } from '../providers/note-service/note-service';
 import { IonicStorageModule } from '@ionic/storage';
-import { FromsModule, ReactiveFormsModule } from '@angular/forms';
+import {  ReactiveFormsModule, FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     MyApp,
@@ -19,7 +19,10 @@ import { FromsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    FormsModule,
+    ReactiveFormsModule
+
 
   ],
   bootstrap: [IonicApp],
