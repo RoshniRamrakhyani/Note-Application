@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular/umd';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NoteService } from '../../providers/note-service/note-service';
 import { Note } from '../../model/note.model';
-import { FormGroup, FormControl } from '../../../node_modules/@angular/forms';
+import { FormGroup, AbstractControl, FormControl } from '@angular/forms';
+
 @IonicPage()
 @Component({
   selector: 'page-add-note',

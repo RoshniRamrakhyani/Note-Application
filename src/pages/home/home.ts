@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular/umd';
+import { NavController } from 'ionic-angular';
 import { AddNotePage } from '../add-note/add-note';
 import { NoteService } from '../../providers/note-service/note-service';
 import { Note } from '../../model/note.model';

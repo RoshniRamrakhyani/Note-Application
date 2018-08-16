@@ -10,24 +10,24 @@
 
 <ion-content padding>
 
-<form [formGroup]="forGroup"(ngSubmit)="saveNote"(formGroup.value) >
+<form [formGroup]="formGroup"(ngSubmit)="saveNote(formGroup.value)" >
  
     <ion-item>
         <ion-label> Date</ion-label>
-        <ion-datetime displayFormat="MM/DD/YYYY"  formControlname="date"></ion-datetime>
+        <ion-datetime displayFormat="MM/DD/YYYY"  formControlName="date"></ion-datetime>
          
     </ion-item>
     <ion-item>
     <ion-label>Title</ion-label>
-    <ion-input type="text" name="title" formControlname="title" required></ion-imput>
-     <div class="alert" *ngIf="!formGroupControl.controls['title'].valid"
-     && "fromGroup.controls['title'].touched">{{ titleAlert }} </div>
+    <ion-input type="text" name="title" formControlname="title" required></ion-input>
+     <div class="alert" *ngIf="!formGroup.controls['title'].valid
+     && formGroup.controls['title'].touched">{{ titleAlert }} </div>
      </ion-item>
     <ion-item>
       <ion-label>Note</ion-label>
-      <ion-input type="text" name="content" formControlname="content" required></ion-imput>
-       <div class="alert" *ngIf="!formGroupControl.controls['content'].valid"
-       && "fromGroup.controls['content'].touched">{{ titleAlert }} </div>
+      <ion-input type="text" name="content" formControlname="content" required></ion-input>
+       <div class="alert" *ngIf="!formGroup.controls['content'].valid
+       && formGroup.controls['content'].touched">{{ ContentAlert }} </div>
     </ion-item>
 <button ion-button type="submit" [disabled]="!formGroup.valid">Save Note</button>
 </form>
