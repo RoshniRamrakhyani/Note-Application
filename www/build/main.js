@@ -46,10 +46,10 @@ var AddNotePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-add-note',template:/*ion-inline-start:"C:\Users\roshu\Desktop\Note-Application\Note-Application\src\pages\add-note\add-note.html"*/'\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Add Note</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n<form [formGroup]="formGroup"(ngSubmit)="saveNote(formGroup.value)" >\n\n \n\n    <ion-item>\n\n        <ion-label> Date</ion-label>\n\n        <ion-datetime displayFormat="MM/DD/YYYY"  formControlName="date"></ion-datetime>\n\n         \n\n    </ion-item>\n\n    <ion-item>\n\n    <ion-label>Title</ion-label>\n\n    <ion-input type="text" name="title" formControlName="title" required></ion-input>\n\n     <div class="alert" *ngIf="!formGroup.controls[\'title\'].valid\n\n     && formGroup.controls[\'title\'].touched">{{ titleAlert }} </div>\n\n     </ion-item>\n\n    <ion-item>\n\n      <ion-label>Note</ion-label>\n\n      <ion-input type="text" name="content" formControlName="content" required></ion-input>\n\n       <div class="alert" *ngIf="!formGroup.controls[\'content\'].valid\n\n       && formGroup.controls[\'content\'].touched">{{ ContentAlert }} </div>\n\n    </ion-item>\n\n<button ion-button type="submit" [disabled]="!formGroup.valid">Save Note</button>\n\n</form>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\roshu\Desktop\Note-Application\Note-Application\src\pages\add-note\add-note.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_note_service_note_service__["a" /* NoteService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_note_service_note_service__["a" /* NoteService */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_note_service_note_service__["a" /* NoteService */]])
     ], AddNotePage);
     return AddNotePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=add-note.js.map
@@ -91,10 +91,11 @@ var ViewNotePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-view-note',template:/*ion-inline-start:"C:\Users\roshu\Desktop\Note-Application\Note-Application\src\pages\view-note\view-note.html"*/'<!--\n  Generated template for the ViewNotePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>View-Note</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n<ion-card>\n  <ion-card-content>\n    <ion-card-title>\n        {{note.title}}\n    </ion-card-title>\n    <div class="note-date">\n      {{note.date}}\n    </div>\n    <hr />\n    <div> {{note.content}}</div>\n  </ion-card-content>\n</ion-card>\n</ion-content>\n<ion-footer>\n  <button ion-button color="danger" block (click)="deleteNote(note.createDate)">\n    Delete Note\n  </button>\n</ion-footer>'/*ion-inline-end:"C:\Users\roshu\Desktop\Note-Application\Note-Application\src\pages\view-note\view-note.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_note_service_note_service__["a" /* NoteService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_note_service_note_service__["a" /* NoteService */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__providers_note_service_note_service__["a" /* NoteService */]])
     ], ViewNotePage);
     return ViewNotePage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=view-note.js.map
@@ -196,10 +197,9 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"C:\Users\roshu\Desktop\Note-Application\Note-Application\src\pages\home\home.html"*/'<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      My Notes\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n  <ion-list>\n\n    <button ion-item *ngFor="let note of notes | async" (click)="getNote(Note.createDate)">\n\n      {{ note.title }}\n\n    </button>\n\n  </ion-list>\n\n  <button ion-button (click)="addNote()">Add Note</button>\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\roshu\Desktop\Note-Application\Note-Application\src\pages\home\home.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__providers_note_service_note_service__["a" /* NoteService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_note_service_note_service__["a" /* NoteService */]) === "function" && _b || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */], __WEBPACK_IMPORTED_MODULE_3__providers_note_service_note_service__["a" /* NoteService */]])
     ], HomePage);
     return HomePage;
-    var _a, _b;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -339,9 +339,10 @@ var MyApp = /** @class */ (function () {
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"C:\Users\roshu\Desktop\Note-Application\Note-Application\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\roshu\Desktop\Note-Application\Note-Application\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* Platform */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _c || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=app.component.js.map
@@ -399,10 +400,9 @@ var NoteService = /** @class */ (function () {
     };
     NoteService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */]])
     ], NoteService);
     return NoteService;
-    var _a;
 }());
 
 //# sourceMappingURL=note-service.js.map
