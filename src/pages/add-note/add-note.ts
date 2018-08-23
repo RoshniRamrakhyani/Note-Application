@@ -2,8 +2,9 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NoteService } from '../../providers/note-service/note-service';
 import { Note } from '../../model/note.model';
-import { FormGroup, AbstractControl, FormControl } from '@angular/forms';
-
+import { FormGroup, FormControl } from '@angular/forms';
+import { NgModule } from'@angular/core';
+@NgModule()
 @IonicPage()
 @Component({
   selector: 'page-add-note',
@@ -25,7 +26,7 @@ content: string='';
       content: new FormControl(),
       date:new FormControl(),
   
-    })
+    });
   }
 
   saveNote(note: Note){

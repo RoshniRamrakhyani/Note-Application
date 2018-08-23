@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { ErrorHandler, NgModule } from '@angular/core';
+import { ErrorHandler,NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -10,18 +10,24 @@ import { AddNotePage } from '../pages/add-note/add-note';
 import { NoteService } from '../providers/note-service/note-service';
 import { IonicStorageModule } from '@ionic/storage';
 import {  ReactiveFormsModule, FormsModule } from '@angular/forms';
+//import { AddNotePageModule } from '../pages/add-note/add-note.module';
+import { ViewNotePage } from '../pages/view-note/view-note';
+//import { AddNotePageModule } from '../pages/add-note/add-note';
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    AddNotePage
+    AddNotePage,
+    ViewNotePage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    //NgModule,
+    //AddNotePageModule
 
 
   ],
@@ -29,7 +35,8 @@ import {  ReactiveFormsModule, FormsModule } from '@angular/forms';
   entryComponents: [
     MyApp,
     HomePage,
-    AddNotePage
+    AddNotePage,
+    ViewNotePage
   ],
   providers: [
     StatusBar,
@@ -38,4 +45,6 @@ import {  ReactiveFormsModule, FormsModule } from '@angular/forms';
     NoteService
   ]
 })
-export class AppModule {}
+export class AppModule {
+  createDate: number;
+}
