@@ -8,8 +8,13 @@
 
 <ion-content padding>
   <ion-list>
+<<<<<<< HEAD
     <button ion-item *ngFor="let note of notes | async">
       {{note.title}}
+=======
+    <button ion-item *ngFor="let note of notes | async" (click)="getNote(Note.createDate)">
+      {{ note.title }}
+>>>>>>> 8ce015ee7b9cee363a5e190c815694104032b057
     </button>
   </ion-list>
   <button ion-button (click)="addNote()">Add Note</button>

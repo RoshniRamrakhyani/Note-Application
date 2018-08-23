@@ -6,6 +6,10 @@ import { Note } from '../../model/note.model';
 @Injectable()
 export class NoteService {
 private notes: Note[]=[];
+<<<<<<< HEAD
+=======
+private note: Note;
+>>>>>>> 8ce015ee7b9cee363a5e190c815694104032b057
   constructor(public storage: Storage) {
     
   }
@@ -17,9 +21,28 @@ saveNote(note: Note){
 getAllNotes() {
   return this.storage.get('notes').then(
     (notes) => {
+<<<<<<< HEAD
       this.notes = notes==  null ? [] : notes;
+=======
+      this.notes = notes ==  null ? [] : notes;
+>>>>>>> 8ce015ee7b9cee363a5e190c815694104032b057
       return [...this.notes];
     }
   )
 }
+<<<<<<< HEAD
+=======
+getNote(createDate: number){
+return this.storage.get('notes').then((notes)=>{
+  this.note = [...notes].find(r => r.createDate  === createDate);
+  return this.note;
+});
+}
+deleteNote(createDate: number){
+  this.notes=this.notes.filter((note) =>{
+    return note.createDate !== createDate ;
+  });
+  this.storage.set('note',this.notes);
+}
+>>>>>>> 8ce015ee7b9cee363a5e190c815694104032b057
 }
